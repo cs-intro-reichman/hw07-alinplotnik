@@ -51,14 +51,14 @@ public class SpellChecker {
 	}
 
 	public static String spellChecker(String word, int threshold, String[] dictionary) {
-		int minDis = threshold;
+		int minDis = threshold + 1;
 		String realWord = word;
 
 		for ( int i = 0; i < dictionary.length; i++)
 		{
 			int dis = levenshtein(dictionary[i], word);
 
-			if ( dis <= minDis )
+			if ( dis < minDis )
 			{
                realWord = dictionary[i];
 			   minDis = dis;
