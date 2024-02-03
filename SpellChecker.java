@@ -41,15 +41,31 @@ public class SpellChecker {
 		String[] dictionary = new String[3000];
 
 		In in = new In(fileName);
+		
+		for (int i = 0; i < dictionary.length && !in.isEmpty(); i++)
+		{
+			dictionary[i] = in.readString();
+		}
 
-		// Your code here
-
-		return null;
+		return dictionary;
 	}
 
 	public static String spellChecker(String word, int threshold, String[] dictionary) {
-		// Your code goes here
-		return null;
+		int minDis = threshold;
+		String realWord = word;
+
+		for ( int i = 0; i < dictionary.length; i++)
+		{
+			int dis = levenshtein(dictionary[i], word);
+
+			if ( dis <= minDis )
+			{
+               realWord = dictionary[i];
+			   minDis = dis;
+			}
+
+		}
+		return realWord;
 	}
 
 }
