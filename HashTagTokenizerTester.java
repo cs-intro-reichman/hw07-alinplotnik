@@ -31,6 +31,7 @@ public class HashTagTokenizerTester {
         String[] result = HashTagTokenizer.readDictionary(FILE_NAME);
         System.out.println("Dictionary loaded successfully.");
         System.out.println("Dictionary length: " + result.length);
+        System.out.println("2 words for example - " + result[2] + ", " + result[3]);
     }
 
     private static void testExistInDictionary(String word) {
